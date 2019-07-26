@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Employee</string>
+    <string name="employee_name">Employee Name</string>
+    <string name="employee_age">Employee Age</string>
+    <string name="department">Department</string>
+    <string name="designation">Designation</string>
+    <string name="save">Save</string>
+    <string name="title">Employee Database</string>
+    <string name="cancel">Cancel</string>
+</resources>

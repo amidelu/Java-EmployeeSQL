@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textSize="28sp"
+        android:textColor="@color/textColor"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:layout_margin="10dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/EditTextBorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/employee_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNameId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/EditTextBorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/employee_age">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etAgeId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/EditTextBorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/department">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDepartId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/EditTextBorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/designation">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDesignId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaveId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimaryDark"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancelId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:layout_toStartOf="@id/btnSaveId"
+            android:layout_toLeftOf="@id/btnSaveId"
+            android:layout_margin="10dp"
+            android:background="@color/alertColor"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>
