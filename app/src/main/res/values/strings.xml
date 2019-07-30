@@ -10,4 +10,5 @@
     <string name="view">View</string>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
+    <string name="id">Enter your ID</string>
 </resources>

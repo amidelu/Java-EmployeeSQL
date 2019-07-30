@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText etName, etAge, etDepartment, etDesignation;
+    EditText etId, etName, etAge, etDepartment, etDesignation;
     Button btnSave, btnView, btnUpdate, btnDelete;
 
     //Reference creation to our custom db class
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         databaseHelper = new DatabaseHelper(this);
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
+        etId = findViewById(R.id.etId);
         etName = findViewById(R.id.etNameId);
         etAge = findViewById(R.id.etAgeId);
         etDepartment = findViewById(R.id.etDepartId);
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        String id = etId.getText().toString();
         String name = etName.getText().toString();
         String age = etAge.getText().toString();
         String department = etDepartment.getText().toString();
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+        //View data code goes here
         if (view.getId()==R.id.btnViewId) {
             Cursor cursor = databaseHelper.viewAllData();
 
@@ -78,9 +81,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .append("Designation: "+cursor.getString(4)+"\n\n");
             }
             viewData("ResultSet", stringBuilder.toString());
+
+        } else if (view.getId()==R.id.btnUpdateId) {
+            boolean checkUpdate = databaseHelper.updateData(id, name, age, department, designation);
+
+            if (checkUpdate) {
+                Toast.makeText(getApplicationContext(), "Row is updated successfully", Toast.LENGTH_LONG).show();
+
+            }else {
+                Toast.makeText(getApplicationContext(), "Row isn't updated successfully", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
+    //This method set the alert dialogue builder
     public void viewData (String title, String data) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);

@@ -21,6 +21,21 @@
         style="@style/EditTextBorder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/id">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/EditTextBorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="@string/employee_name">
 
         <com.google.android.material.textfield.TextInputEditText
