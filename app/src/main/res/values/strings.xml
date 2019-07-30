@@ -7,4 +7,7 @@
     <string name="save">Save</string>
     <string name="title">Employee Database</string>
     <string name="cancel">Cancel</string>
+    <string name="view">View</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
 </resources>

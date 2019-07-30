@@ -1,7 +1,9 @@
 package com.andro4everyone.employee;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -12,7 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText etName, etAge, etDepartment, etDesignation;
-    Button btnSave;
+    Button btnSave, btnView, btnUpdate, btnDelete;
 
     //Reference creation to our custom db class
     DatabaseHelper databaseHelper;
@@ -23,14 +25,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         databaseHelper = new DatabaseHelper(this);
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
         etName = findViewById(R.id.etNameId);
         etAge = findViewById(R.id.etAgeId);
         etDepartment = findViewById(R.id.etDepartId);
         etDesignation = findViewById(R.id.etDesignId);
+
         btnSave = findViewById(R.id.btnSaveId);
+        btnView = findViewById(R.id.btnViewId);
+        btnUpdate = findViewById(R.id.btnUpdateId);
+        btnDelete = findViewById(R.id.btnDeleteId);
 
         btnSave.setOnClickListener(this);
+        btnView.setOnClickListener(this);
+        btnUpdate.setOnClickListener(this);
+        btnDelete.setOnClickListener(this);
     }
 
     @Override
@@ -52,5 +62,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+        if (view.getId()==R.id.btnViewId) {
+            Cursor cursor = databaseHelper.viewAllData();
+
+            if (cursor.getCount() == 0 ) {
+                viewData("Error", "Data Not Found");
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            while (cursor.moveToNext()) {
+                stringBuilder.append("ID: "+cursor.getString(0)+"\n")
+                        .append("Name: "+cursor.getString(1)+"\n")
+                        .append("Age: "+cursor.getString(2)+"\n")
+                        .append("Department: "+cursor.getString(3)+"\n")
+                        .append("Designation: "+cursor.getString(4)+"\n\n");
+            }
+            viewData("ResultSet", stringBuilder.toString());
+        }
+    }
+
+    public void viewData (String title, String data) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setMessage(data);
+        builder.setCancelable(true);
+        builder.show();
     }
 }

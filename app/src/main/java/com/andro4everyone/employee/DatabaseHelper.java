@@ -2,6 +2,7 @@ package com.andro4everyone.employee;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -23,6 +24,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Drop table variable if table already exist
     private static final String DROP_TABLE = "DROP TABLE IF EXISTS " +TABLE_NAME;
+    private static final String VIEWALL_DATA = "SELECT * FROM "+TABLE_NAME;
+
     private Context context;
 
     //Default constructor and methods created after extending SQLiteOpenHelper
@@ -66,4 +69,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long rowId = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
         return rowId;
     }
+
+    //This method will show data in alert dialogue box
+    public Cursor viewAllData() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery(VIEWALL_DATA, null);
+        return cursor;
+    }
+
+
 }

@@ -86,19 +86,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:layout_margin="10dp"
             android:background="@color/colorPrimaryDark"
+            android:layout_centerHorizontal="true"
             />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCancelId"
+            android:id="@+id/btnViewId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cancel"
-            android:layout_toStartOf="@id/btnSaveId"
-            android:layout_toLeftOf="@id/btnSaveId"
+            android:text="@string/view"
+            android:layout_toRightOf="@id/btnSaveId"
+            android:layout_toEndOf="@id/btnSaveId"
+            android:layout_margin="10dp"
+            android:background="@color/alertColor"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUpdateId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/update"
+            android:layout_below="@id/btnSaveId"
+            android:layout_margin="10dp"
+            android:background="@color/alertColor"
+            android:layout_centerHorizontal="true"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDeleteId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete"
+            android:layout_toRightOf="@id/btnUpdateId"
+            android:layout_toEndOf="@id/btnUpdateId"
+            android:layout_below="@id/btnViewId"
             android:layout_margin="10dp"
             android:background="@color/alertColor"
             />
